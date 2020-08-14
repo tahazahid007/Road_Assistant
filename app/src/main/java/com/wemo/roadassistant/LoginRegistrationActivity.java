@@ -3,20 +3,16 @@ package com.wemo.roadassistant;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,20 +23,16 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginRegistrationActivity extends AppCompatActivity {
 
     private final String PREFS_NAME = "Prefs_ROAD_ASSIST";
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private EditText etEmail, etPassword;
     private static String TAG = "Main Activity";
-    private Button btnLogin, user, serviceProvider, fuelStation, puncture, carLifter, mechanic;
-    private Button generalUser, serProvider, addService;
+    private SharedPreferences sharedPreferences;
+    private EditText etEmail, etPassword;
+    private Button btnLogin;
     private Context context;
     private FirebaseAuth mAuth;
     private TextView register;
-    private FirebaseUser firebaseUser;
-    private String userUID, userEmailIdentifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             initView();
         }
         else {
-            startActivity(new Intent(MainActivity.this, FindServices.class));
+            startActivity(new Intent(LoginRegistrationActivity.this, FindServices.class));
         }
 
 
@@ -60,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         mAuth = FirebaseAuth.getInstance();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
@@ -107,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
 //                                showDialog(context);
                                 saveSharedPreference(context, "login", true);
-                                Intent intent = new Intent(MainActivity.this, FindServices.class);
+                                Intent intent = new Intent(LoginRegistrationActivity.this, FindServices.class);
                                 startActivity(intent);
                             } else {
                                 {
@@ -158,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             etPassword.requestFocus();
         } else if (!email.isEmpty() && !password.isEmpty()) {
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(MainActivity.this,
+                    .addOnCompleteListener(LoginRegistrationActivity.this,
                             new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -205,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveSharedPreference(Context context, String key, boolean value){
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         editor.apply();
     }

@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=p0PoKEPI65o
 package com.wemo.roadassistant;
 
 import androidx.annotation.NonNull;
@@ -5,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -58,6 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getCurrentLocation() {
+        @SuppressLint("MissingPermission")
         Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override

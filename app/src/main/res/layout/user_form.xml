@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backsacreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_cnic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_cnic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CNIC"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_cnic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone No."
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shop_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Area"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_shop_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Name"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_shop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shop_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Address"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_shop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_working_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_working_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Working Hours"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_working_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_service_offering"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_service_offering"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service Offering"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fuel"
+                    />
+                <CheckBox
+                    android:id="@+id/two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Puncture"
+                    />
+                <CheckBox
+                    android:id="@+id/three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mechanic"
+                    />
+                <CheckBox
+                    android:id="@+id/four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Car Lifting"
+                    />
+                <CheckBox
+                    android:id="@+id/five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="All Services of Bike"
+                    />
+                <CheckBox
+                    android:id="@+id/six"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="All Services of Car"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_email_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_email_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_email_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_map_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_map_latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Latitude"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_map_latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_map_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_map_longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Longitude"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_map_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Your Type"
+                android:textSize="12sp"
+                android:layout_marginEnd="15dp"
+                />
+
+
+            <Spinner
+                android:id="@+id/sp_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textAllCaps="false"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

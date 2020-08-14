@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "1053245815012",
+    "firebase_url": "https://mechanic-dhondo.firebaseio.com",
+    "project_id": "mechanic-dhondo",
+    "storage_bucket": "mechanic-dhondo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053245815012:android:3ce91f5185c070697094f1",
+        "android_client_info": {
+          "package_name": "com.wemo.mechanicdhondo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053245815012-r702jqogg2g77spui93if08p3i0okeo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wemo.mechanicdhondo",
+            "certificate_hash": "40a4e270eefcd13182eb217a6f6fd70ea4ddcec6"
+          }
+        },
+        {
+          "client_id": "1053245815012-fmci2bur161e1nsolq4hp1j3i12ri0fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOwMvCLl7vZWepQGxyiR6lr4ORhnYzog8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053245815012-ao7a3fndat11p4pvgbf347l3b3r0nn5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053245815012:android:c4ce2efce8ea1aad7094f1",
+        "android_client_info": {
+          "package_name": "com.wemo.roadassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053245815012-fmci2bur161e1nsolq4hp1j3i12ri0fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOwMvCLl7vZWepQGxyiR6lr4ORhnYzog8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053245815012-ao7a3fndat11p4pvgbf347l3b3r0nn5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

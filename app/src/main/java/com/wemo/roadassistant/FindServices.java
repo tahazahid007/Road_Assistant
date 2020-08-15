@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.wemo.database.UserFormDataSource;
 
 public class FindServices extends AppCompatActivity {
 
@@ -27,6 +27,8 @@ public class FindServices extends AppCompatActivity {
             , et_map_latitude, et_map_longitude;
     private CheckBox one, two, three, four, five, six;
 
+    private UserFormDataSource userFormDataSource;
+
     private String[] services = { "Car Mechanic", "Puncture Shop", "Fuel Station", "Vehicle Lifter"};
 
     @Override
@@ -35,8 +37,23 @@ public class FindServices extends AppCompatActivity {
         setContentView(R.layout.activity_find_services);
         context = this;
         aa = new ArrayAdapter(context,android.R.layout.simple_spinner_item,services);
+        userFormDataSource = new UserFormDataSource(context);
+        userFormDataSource.open();
+
 
         initView();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        userFormDataSource.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        userFormDataSource.close();
     }
 
     private void initView() {
@@ -104,7 +121,9 @@ public class FindServices extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "DB ka Structure bnana hai with Firebase", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "DB ka Structure bnana hai with Firebase", Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -16,19 +17,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.wemo.database.UserFormDataSource;
+import com.wemo.dataprovider.DataProvider;
+import com.wemo.model.UserForm;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FindServices extends AppCompatActivity {
 
-    private Button generalUser, serProvider, addService, btnSubmit, btnMechanic, btnFuel, btnLifter, btnPuncture;
-    private Context context;
-    private Spinner spin;
-    private ArrayAdapter aa;
-    private EditText et_fullname, et_cnic, et_phone, et_shop_area, et_shop_name, et_shop_address, et_working_hours, et_email_address
-            , et_map_latitude, et_map_longitude;
-    private CheckBox one, two, three, four, five, six;
-
+    public List<UserForm> dataItemList;
     private UserFormDataSource userFormDataSource;
 
+    private Button generalUser, serProvider, addService, btnSubmit, btnMechanic, btnFuel, btnLifter, btnPuncture;
+    private Context context;
+    public static Spinner spin;
+    private ArrayAdapter aa;
+    public static EditText et_fullname, et_cnic, et_phone, et_shop_area, et_shop_name, et_shop_address, et_working_hours, et_email_address
+            , et_map_latitude, et_map_longitude;
+    private CheckBox one, two, three, four, five, six;
+    public static StringBuilder checkBoxText;
     private String[] services = { "Car Mechanic", "Puncture Shop", "Fuel Station", "Vehicle Lifter"};
 
     @Override
@@ -36,10 +43,10 @@ public class FindServices extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_services);
         context = this;
+        dataItemList = DataProvider.userFormsItemList;
         aa = new ArrayAdapter(context,android.R.layout.simple_spinner_item,services);
         userFormDataSource = new UserFormDataSource(context);
         userFormDataSource.open();
-
 
         initView();
     }
@@ -122,6 +129,32 @@ public class FindServices extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(context, "DB ka Structure bnana hai with Firebase", Toast.LENGTH_SHORT).show();
+
+                checkBoxText = new StringBuilder();
+
+                if(one.isChecked()){
+                    checkBoxText.append("Fuel ");
+                }if(two.isChecked()){
+                    checkBoxText.append("Puncture ");
+                }if(three.isChecked()){
+                    checkBoxText.append("Mechanic ");
+                }if(four.isChecked()){
+                    checkBoxText.append("Car Lifting ");
+                }if(five.isChecked()){
+                    checkBoxText.append("All Service of Bike ");
+                }if(six.isChecked()){
+                    checkBoxText.append("All Service of Car");
+                }
+
+
+                for (UserForm item : dataItemList){
+                    try {
+                        userFormDataSource.insertItem(item);
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
 
 
             }

@@ -5,6 +5,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +13,7 @@ import androidx.annotation.RequiresApi;
 
 public class MyDBOpenHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_Name = "RoadAssist";
+    public static final String DATABASE_Name = "RoadAssist.db";
     public static final int DATABASE_VERSION = 1;
 
     public MyDBOpenHelper(@Nullable Context context) {
@@ -22,6 +23,7 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(UserFormTable.SQL_CREATE);
+        Log.d("myTag", "onCreate: Data Base Created" );
 
     }
 

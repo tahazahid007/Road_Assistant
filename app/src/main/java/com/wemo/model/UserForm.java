@@ -1,5 +1,9 @@
 package com.wemo.model;
 
+import android.content.ContentValues;
+
+import com.wemo.database.UserFormTable;
+
 import java.util.UUID;
 
 public class UserForm {
@@ -157,5 +161,43 @@ public class UserForm {
 
     public void setShopType(String shopType) {
         this.shopType = shopType;
+    }
+
+    public ContentValues getValues(){
+        ContentValues contentValues = new ContentValues(13);
+        contentValues.put(UserFormTable.COLUMN_ID, this.id);
+        contentValues.put(UserFormTable.COLUMN_FULL_NAME, this.fullName);
+        contentValues.put(UserFormTable.COLUMN_CNIC, this.cnic);
+        contentValues.put(UserFormTable.COLUMN_PONE_NUM, this.phoneNum);
+        contentValues.put(UserFormTable.COLUMN_SHOP_AREA, this.shopArea);
+        contentValues.put(UserFormTable.COLUMN_SHOP_NAME, this.shopName);
+        contentValues.put(UserFormTable.COLUMN_SHOP_ADDRESS, this.shopAddress);
+        contentValues.put(UserFormTable.COLUMN_WORKING_HOURS, this.workingHours);
+        contentValues.put(UserFormTable.COLUMN_SERVICE_OFFERING, this.serviceOffering);
+        contentValues.put(UserFormTable.COLUMN_EMAIL_ADDRESS, this.emailAddress);
+        contentValues.put(UserFormTable.COLUMN_SHOP_LATITUDE, this.shopLat);
+        contentValues.put(UserFormTable.COLUMN_SHOP_LONGITUDE, this.shopLang);
+        contentValues.put(UserFormTable.COLUMN_SHOP_TYPE, this.shopType);
+
+        return contentValues;
+    }
+
+    @Override
+    public String toString() {
+        return "UserForm{" +
+                "id='" + id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", cnic='" + cnic + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", shopArea='" + shopArea + '\'' +
+                ", shopName='" + shopName + '\'' +
+                ", shopAddress='" + shopAddress + '\'' +
+                ", workingHours='" + workingHours + '\'' +
+                ", serviceOffering='" + serviceOffering + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", shopLat='" + shopLat + '\'' +
+                ", shopLang='" + shopLang + '\'' +
+                ", shopType='" + shopType + '\'' +
+                '}';
     }
 }

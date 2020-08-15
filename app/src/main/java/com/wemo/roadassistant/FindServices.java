@@ -6,9 +6,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +16,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FindServices extends AppCompatActivity {
 
@@ -29,12 +33,18 @@ public class FindServices extends AppCompatActivity {
 
     private String[] services = { "Car Mechanic", "Puncture Shop", "Fuel Station", "Vehicle Lifter"};
 
+    private StringBuilder checkBoxData;
+
+    private List<String> allData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_services);
         context = this;
         aa = new ArrayAdapter(context,android.R.layout.simple_spinner_item,services);
+        allData = new ArrayList<>();
+        checkBoxData = new StringBuilder();
 
         initView();
     }
@@ -105,8 +115,40 @@ public class FindServices extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "DB ka Structure bnana hai with Firebase", Toast.LENGTH_SHORT).show();
+                allData.add(et_fullname.getText().toString());
+                allData.add(et_cnic.getText().toString());
+                allData.add(et_phone.getText().toString());
+                allData.add(et_shop_area.getText().toString());
+                allData.add(et_shop_name.getText().toString());
+                allData.add(et_shop_address.getText().toString());
+                allData.add(et_working_hours.getText().toString());
+                allData.add(et_email_address.getText().toString());
+                allData.add(et_map_latitude.getText().toString());
+                allData.add(et_map_longitude.getText().toString());
+                allData.add(checkBox().toString());
+                allData.add(spin.getSelectedItem().toString());
+
+                Log.d("myTag", "onClick: " + allData);
+
             }
         });
+    }
+
+    private StringBuilder checkBox() {
+        if(one.isChecked()){
+            checkBoxData.append("Fuel ");
+        }if(two.isChecked()){
+            checkBoxData.append("\nPuncture ");
+        }if(three.isChecked()){
+            checkBoxData.append("\nMechanic ");
+        }if(four.isChecked()){
+            checkBoxData.append("\nCar Lifting ");
+        }if(five.isChecked()){
+            checkBoxData.append("\nAll Services of Bike ");
+        }if(six.isChecked()){
+            checkBoxData.append("\nAll Services of Car ");
+        }
+        return checkBoxData;
     }
 
     public void showDialog(Context context) {

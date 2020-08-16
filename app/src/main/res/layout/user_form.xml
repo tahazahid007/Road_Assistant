@@ -321,6 +321,48 @@
 
         </LinearLayout>
 
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical" >
+
+            <!--<fragment
+                android:id="@+id/maps_form"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />-->
+            <include
+                android:id="@+id/form_map"
+                layout="@layout/activity_maps"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp" >
+
+                <ImageView
+                    android:id="@+id/imgMyLocation"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/my_location" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
         <LinearLayout
             android:id="@+id/ll_type"
             android:layout_width="match_parent"

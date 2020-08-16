@@ -6,32 +6,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
-
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.wemo.database.MyDBHandler;
-import com.wemo.model.UserForm;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FindServices extends AppCompatActivity {
 
-    private Button generalUser, serProvider, addService, btnSubmit, btnMechanic, btnFuel, btnLifter, btnPuncture;
+    private Button generalUser, serProvider, addService, btnMechanic, btnFuel, btnLifter, btnPuncture;
     private Context context;
-
-
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
 
@@ -40,10 +25,8 @@ public class FindServices extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_services);
         context = this;
-
-
-        mDatabase = FirebaseDatabase.getInstance();
-        mRef = mDatabase.getReference();
+        /*mDatabase = FirebaseDatabase.getInstance();
+        mRef = mDatabase.getReference();*/
 
         initView();
     }

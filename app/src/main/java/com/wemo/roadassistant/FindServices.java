@@ -46,7 +46,9 @@ public class FindServices extends AppCompatActivity {
         serProvider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Login Page wala kam hoga", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "Login Page wala kam hoga", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FindServices.this, ServiceProviderData.class);
+                startActivity(intent);
             }
         });
 

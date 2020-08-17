@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Road Assistant</string>
+    <string name="app_name">On Road Assistance</string>
     <string name="create_an_account"><u><i>Create an Account</i></u></string>
     <string name="title_activity_maps">Map</string>
 </resources>

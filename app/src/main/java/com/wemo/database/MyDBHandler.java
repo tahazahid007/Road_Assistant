@@ -2,6 +2,7 @@ package com.wemo.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -10,6 +11,9 @@ import androidx.annotation.Nullable;
 
 import com.wemo.model.UserForm;
 import com.wemo.params.Params;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     public MyDBHandler(Context context) {
@@ -61,5 +65,27 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(Params.TABLE_NAME, null, values);
         Log.d("MyTag", "SuccessFully Inserted");
         db.close();
+    }
+
+    public List<UserForm> getAllUser(){
+        List<UserForm> userList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        //Query
+        String select = "SELECT * FROM " + Params.TABLE_NAME;
+        Cursor cursor = db.rawQuery(select, null);
+
+        if(cursor.moveToNext()){
+            do {
+                UserForm userForm = new UserForm();
+                userForm.setFullName(cursor.getString(1));
+                userForm.setShopName(cursor.getString(5));
+                userForm.setShopAddress(cursor.getString(6));
+                userForm.setPhoneNumber(cursor.getString(3));
+                userList.add(userForm);
+            }
+            while (cursor.moveToNext());
+        }
+        return userList;
     }
 }

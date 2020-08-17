@@ -49,6 +49,12 @@ public class UserForm {
         this.shopType = shopType;
     }
 
+    public UserForm(String fullName, String shopName, String shopAddress){
+        this.fullName = fullName;
+        this.shopName = shopName;
+        this.shopAddress = shopAddress;
+    }
+
     public UserForm(){}
 
     public int getId() {

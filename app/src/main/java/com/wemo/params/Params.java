@@ -4,7 +4,8 @@ public class Params {
 
     public static final int DB_VERSION = 1;
     public static final String DB_NAME = "road_db.db";
-    public static final String TABLE_NAME = "form_data";
+    public static final String Form_TABLE = "form_data";
+    public static final String LATLANG_TABLE = "lat_lang";
 
     //keys for our table in db
     public static final String KEY_ID = "id";

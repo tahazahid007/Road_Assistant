@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -24,6 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.wemo.database.MyDBHandler;
 
 public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
@@ -71,13 +73,18 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
                     mapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
-                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                            MarkerOptions markerOptions = new MarkerOptions()
-                                    .position(latLng)
-                                    .title("Shop Name");
+                            MyDBHandler myDBHandler = new MyDBHandler(context);
+                            for (int i = 0; i < myDBHandler.getAllLatLang().size(); i++) {
+                                Log.d("Test", "onMapReady: " + myDBHandler.getAllLatLang().get(i).getLatitude()+"......"+myDBHandler.getAllLatLang().get(i).getLongitude());
+                                LatLng latLng = new LatLng(Double.parseDouble(myDBHandler.getAllLatLang().get(i).getLatitude()),
+                                        Double.parseDouble(myDBHandler.getAllLatLang().get(i).getLongitude()));
+                                MarkerOptions markerOptions = new MarkerOptions()
+                                        .position(latLng)
+                                        .title(myDBHandler.getAllLatLang().get(i).getShopName());
 
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
-                            googleMap.addMarker(markerOptions);
+                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
+                                googleMap.addMarker(markerOptions);
+                            }
                         }
                     });
                 }

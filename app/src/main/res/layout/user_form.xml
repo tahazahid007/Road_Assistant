@@ -323,18 +323,18 @@
 
 
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="vertical" >
 
-            <!--<fragment
+            &lt;!&ndash;<fragment
                 android:id="@+id/maps_form"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />-->
+                android:layout_height="match_parent" />&ndash;&gt;
             <include
                 android:id="@+id/form_map"
                 layout="@layout/activity_maps"/>
@@ -354,7 +354,7 @@
                     android:src="@drawable/my_location" />
             </LinearLayout>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
 
